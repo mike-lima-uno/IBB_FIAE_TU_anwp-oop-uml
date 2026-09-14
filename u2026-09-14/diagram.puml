@@ -1,0 +1,93 @@
+@startuml
+
+title Alcohol Concentration Test - Class Diagram
+
+class Person {
+    - name: str
+    - gender: str
+    - mass: float
+
+    + __init__(
+        name: str,
+        gender: str,
+        mass: float
+    ): None
+
+    + distribution_factor(): float
+    + __str__(): str
+}
+
+class AlcoholTest {
+    - test_name: str
+    - limit: float
+
+    + __init__(
+        test_name: str,
+        limit: float = 0.5
+    ): None
+
+    + alcohol_amount(
+        volume: float,
+        alcohol_content: float,
+        density: float = 0.8
+    ): float
+
+    + concentration(
+        person: Person,
+        volume: float,
+        alcohol_content: float,
+        density: float = 0.8
+    ): float
+
+    + passed(
+        person: Person,
+        volume: float,
+        alcohol_content: float,
+        density: float = 0.8
+    ): bool
+}
+
+class Main {
+    + main(): None
+}
+
+class TestPerson {
+    + test_create_male_person(): None
+    + test_create_female_person(): None
+    + test_invalid_gender(): None
+    + test_invalid_mass(): None
+}
+
+class TestAlcoholTest {
+    + setUp(): None
+    + test_alcohol_amount(): None
+    + test_hansel_passes(): None
+    + test_gretel_does_not_pass(): None
+}
+
+Main ..> Person : creates
+Main ..> AlcoholTest : uses
+
+TestPerson ..> Person : tests
+TestAlcoholTest ..> Person : tests
+TestAlcoholTest ..> AlcoholTest : tests
+
+note right of AlcoholTest
+Widmark formula:
+
+A = V * alcohol_content * density
+
+c = A / (mass * r)
+
+A: alcohol amount in grams
+V: drink volume in milliliters
+r: distribution factor
+c: concentration in g/kg
+end note
+
+note bottom of Person
+Male distribution factor: 0.7
+Female distribution factor: 0.6
+end note
+
+@enduml

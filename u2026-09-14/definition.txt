@@ -1,0 +1,6 @@
+python code: 
+baseado na imagem, escreve uma classe pessoa com atributos nome, genero, massa; 
+escreve uma classe test de alcool constuctor atrib nome do teste, metodo teste de concentracao, insira todos os args, caso necessario, divida o metodo. 
+gere um arquivo main, import person, import test de alcool, def main, gere um homem e uma mulher de nomes hansel e gretel, massa corporea 95 e 65 kg, ambos beberam a mesma quantidade, homem passa, mulher nao passa. 
+gere if __name__ == __main__, rode o codigo, escreve ainda um code testing usando python unit test para person e teste de alcool. 
+separe em 4 arquivos diferentes. obrigado.
