@@ -7,7 +7,6 @@ if __name__ == "__main__":
 
     christmas_trees = generate_christmas_trees(nr_of_threes)
     generate_file(christmas_trees, filename)
-    print(f"The file '{filename}' was created successfully.")
 
     read_trees_from_file(filename)
     print("done.")
